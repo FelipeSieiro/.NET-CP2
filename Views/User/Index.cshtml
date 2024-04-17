@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="text-center">
+    <form asp-controller="Register" asp-action="Register" method="post">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Email</label>
+            <input name="UserEmail" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@exemplo.com">
+        </div>
+
+        <input name="UserName" class="form-control form-control-lg" type="text" placeholder="UserName">
+        <input name="UserPhone" class="form-control form-control-lg" type="text" placeholder="Phone">
+
+        <label for="inputPassword5" class="form-label">Password</label>
+        <input name="UserPassword" type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
+        <div id="passwordHelpBlock" class="form-text">
+            Sua senha deve ser entre 8 a 20 caracteres, conter letras e numeros, nao conter espaços brancos, caracteres especiais ou emoji.
+        </div>
+        <label for="inputPassword5" class="form-label">Confirm Password</label>
+        <input name="ConfirmPassword" type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
+        <div id="passwordHelpBlock" class="form-text">
+            Sua senha deve ser entre 8 a 20 caracteres, conter letras e numeros, nao conter espaços brancos, caracteres especiais ou emoji.
+        </div>
+
+        <button type="submit">Cadastrar</button>
+    </form>
+</div>
