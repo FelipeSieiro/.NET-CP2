@@ -38,5 +38,19 @@ namespace CHECKPOINT2_DOTNET.Controllers
             _dataContext.SaveChanges();
             return View();
         }
+
+        public IActionResult Login(LoginDTO request){
+            var user = _dataContext.UserFiap.FirstOrDefault(x => x.UserEmail == request.UserEmail);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            if (user.UserPassword != request.UserPassword)
+            {
+                return BadRequest("Senha inválida");
+            }
+            ViewBag.userData = user;
+            return View(user);
+        }
     }
 }
