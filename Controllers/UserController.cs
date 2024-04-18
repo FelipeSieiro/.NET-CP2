@@ -15,7 +15,7 @@ namespace CHECKPOINT2_DOTNET.Controllers
             _dataContext = dataContext;
             _logger = logger;
         }
-        public IActionResult Index()
+        public IActionResult Login()
         {
             return View();
         }
