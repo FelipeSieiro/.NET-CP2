@@ -1,0 +1,15 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<form asp-controller="User" asp-action="Delete" method="delete">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Endereço de email que está vinculado a sua conta</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" name="UserEmail" aria-describedby="emailHelp" placeholder="Enter email" required>
+       
+    </div>
+    <button type="submit" class="btn btn-primary">Excluir</button>
+</form>
+

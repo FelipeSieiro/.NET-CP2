@@ -1,4 +1,5 @@
-﻿using CHECKPOINT2_DOTNET.Models;
+﻿using CHECKPOINT2_DOTNET.Data;
+using CHECKPOINT2_DOTNET.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -6,10 +7,12 @@ namespace CHECKPOINT2_DOTNET.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly DataContext _dataContext;
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, DataContext dataContext)
         {
+            _dataContext = dataContext;
             _logger = logger;
         }
 
@@ -22,6 +25,8 @@ namespace CHECKPOINT2_DOTNET.Controllers
         {
             return View();
         }
+
+        
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

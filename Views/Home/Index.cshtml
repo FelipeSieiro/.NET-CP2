@@ -1,17 +1,57 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
 
-<form asp-controller="Home" asp-action="Login" method="post">
-    <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" name="UserEmail" aria-describedby="emailHelp" placeholder="Enter email" required>
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-    </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" name="UserPassword" placeholder="Password" required>
-    </div>
-    <button type="submit" class="btn btn-primary">Login</button>
-</form>
+<div>
+    <div class="container">
+        <h1 class="text-center mb-4">Notícias sobre o mundo gamer</h1>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <a href="https://store.steampowered.com/app/2292260/STAR_WARS_Dark_Forces_Remaster/">
+                        <img src="https://cdn.akamai.steamstatic.com/steam/apps/2292260/capsule_616x353.jpg?t=1709278523" class="card-img-top" alt="Placeholder Image">
+                        <div class="card-body">
+                            <h6 class="card-title">Lançamento: Star Wars: Dark Forces Remaster</h6>
+                            <p class="card-text">Venha conferir na STEAM esse novo lançamento </p>
+                            <p class="card-text"><small class="text-muted">Atualizado em 28 de fevereiro de 2024</small></p>
+                        </div>
+                    </a>
 
+                </div>
+
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <a href="https://store.steampowered.com/sale/battlefield-franchise">
+                        <img src="https://assets.xboxservices.com/assets/71/99/71999807-558a-4640-b29a-cb13a721c4bd.jpg?n=299441_GLP-Page-Hero-0_1083x609.jpg" class="card-img-top" alt="Placeholder Image">
+                        <div class="card-body">
+                            <h5 class="card-title">Oferta de 85% pro fim de semana</h5>
+                            <p class="card-text">Economize até 85% em qualquer franquia da BATTLEFIELD</p>
+                            <p class="card-text"><small class="text-muted">Atualizado há 3 horas</small></p>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <a href="https://www.tecmundo.com.br/voxel/281165-epic-games-libera-dois-novos-jogos-gratis-quinta-21-resgate.htm">
+                        <img src="https://t2.tudocdn.net/608957?w=1920&h=1080" class="card-img-top" alt="Placeholder Image">
+                        <div class="card-body">
+                            <h5 class="card-title">EPIC GAMES</h5>
+                            <p class="card-text">Epic Games libera dois novos jogos grátis nesta quinta (21); resgate agora!</p>
+                            <p class="card-text"><small class="text-muted">Atualizado há 4 horas</small></p>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex flex-sm-column">
+            <h5>Já é cadastrado? Faça seu login</h5>
+            <a class="btn btn-primary" asp-controller="User" asp-action="Login">Login</a>
+            <h5>Caso não seja, se cadastre para saber mais</h5>
+            <a class="btn btn-secondary" asp-controller="User" asp-action="Index">Registrar</a>
+        </div>
+    </div> <br />
+</div>

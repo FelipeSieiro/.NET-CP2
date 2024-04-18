@@ -1,0 +1,20 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<form asp-controller="User" asp-action="Update" method="put">
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Email</label>
+        <input name="UserEmail" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@exemplo.com">
+    </div>
+
+    <input name="UserName" class="form-control form-control-lg" type="text" placeholder="Usuario">
+    <input name="UserPhone" class="form-control form-control-lg" type="text" placeholder="Telefone">
+
+    <label for="inputPassword5" class="form-label">Senha</label>
+    <input name="UserPassword" type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
+    
+    <button type="submit" class="btn btn-primary">Atualizar dados</button>
+</form>

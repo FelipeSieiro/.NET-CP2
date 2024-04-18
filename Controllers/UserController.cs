@@ -15,8 +15,39 @@ namespace CHECKPOINT2_DOTNET.Controllers
             _dataContext = dataContext;
             _logger = logger;
         }
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult Members()
+        {
+            return View();
+        }
+
         public IActionResult Login()
         {
+            return View();
+        }
+
+        public IActionResult DeleteView()
+        {
+            return View();
+        }
+
+        public IActionResult DataUpdateView()
+        {
+            return View();
+        }
+
+        public IActionResult UpdateView(EmailDataDTO request)
+        {
+            var user = _dataContext.UserFiap.FirstOrDefault(x => x.UserEmail == request.UserEmail);
+            if (request.UserEmail == null)
+            {
+                return BadRequest("Usuário não existe");
+            }
+
             return View();
         }
 
@@ -39,7 +70,8 @@ namespace CHECKPOINT2_DOTNET.Controllers
             return View();
         }
 
-        public IActionResult Login(LoginDTO request){
+        public IActionResult LoginMethod(LoginDTO request)
+        {
             var user = _dataContext.UserFiap.FirstOrDefault(x => x.UserEmail == request.UserEmail);
             if (user == null)
             {
@@ -50,7 +82,42 @@ namespace CHECKPOINT2_DOTNET.Controllers
                 return BadRequest("Senha inválida");
             }
             ViewBag.userData = user;
-            return View(user);
+            return RedirectToAction("Members", "User");
         }
+
+        public IActionResult Delete(DeleteDTO request)
+        {
+            var user = _dataContext.UserFiap.FirstOrDefault(x => x.UserEmail == request.UserEmail);
+            if (user == null)
+            {
+                return BadRequest("Esse email não está cadastrado");
+            }
+           
+            _dataContext.Remove(user);
+            _dataContext.SaveChanges();
+            return View();
+        }
+
+        public IActionResult Update(UpdateDTO request)
+        {
+            var user = _dataContext.UserFiap.FirstOrDefault(x => x.UserEmail == request.UserEmail);   
+            if (user == null)
+            {
+               return BadRequest("Usuário não existe");
+            }
+
+            user.UserEmail = request.UserEmail;
+            user.UserName = request.UserName;
+            user.UserPassword = request.UserPassword;
+            user.UserPhone = request.UserPhone;
+            
+
+            _dataContext.Update(user);
+            _dataContext.SaveChanges();
+            return View();
+        }
+
+
+
     }
 }
